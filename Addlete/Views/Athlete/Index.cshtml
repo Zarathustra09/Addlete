@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Addlete.Models.Athlete>
+
+@{
+    ViewData["Title"] = "Athlete List";
+}
+ <p>
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </p>
+
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Athlete Name</th>
+                    <th>Sport</th>
+                    <th>Coach</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var athlete in Model)
+                {
+                        <tr>
+                            <td>@athlete.athlete_name</td>
+                            <td>@athlete.sport</td>
+                                <td>@(athlete.Coach != null ? athlete.Coach.coach_name : "No Coach")</td>
+                            <td>@athlete.email</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@athlete.athlete_id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@athlete.athlete_id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@athlete.athlete_id">Delete</a>
+                            </td>
+                        </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

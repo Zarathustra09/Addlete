@@ -1,0 +1,41 @@
+﻿@model Addlete.Models.User
+
+@{
+    ViewData["Title"] = "Delete User";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Delete User</h3>
+    </div>
+    <div class="card-body">
+        <h4>Are you sure you want to delete this user?</h4>
+        <div>
+            <h4>Username: @Model.username</h4>
+            @{
+                string roleString = string.Empty;
+                switch (Model.user_role)
+                {
+                    case 0:
+                        roleString = "Athlete";
+                        break;
+                    case 1:
+                        roleString = "Coach";
+                        break;
+                    case 2:
+                        roleString = "Admin";
+                        break;
+                    default:
+                        roleString = "Unknown";
+                        break;
+                }
+            }
+            <h4>User Role: @roleString</h4>
+        </div>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="user_id" />
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Addlete.Models.Coach>
+
+@{
+    ViewData["Title"] = "Coach List";
+}
+
+ <p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+
+
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Coach Name</th>
+                    <th>Specialization</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var coach in Model)
+                {
+                    <tr>
+                        <td>@coach.coach_name</td>
+                        <td>@coach.specialization</td>
+                        <td>@coach.email</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@coach.coach_id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@coach.coach_id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@coach.coach_id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@model Addlete.Models.Injury_Reports
+
+@{
+    ViewData["Title"] = "Edit Injury Report";
+}
+
+<div class="card-body">
+    <form asp-action="Edit">
+        <div class="form-group">
+            <label asp-for="report_id" class="control-label" hidden>Report ID</label>
+            <input asp-for="report_id" class="form-control" hidden />
+        </div>
+        <div class="form-group">
+            <label asp-for="athlete_id" class="control-label"hidden>Athlete ID </label>
+            <input asp-for="athlete_id" class="form-control" hidden />
+            <span asp-validation-for="athlete_id" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Athlete.athlete_name" class="control-label" hidden>Athlete Name</label>
+            <input asp-for="Athlete.athlete_name" class="form-control" hidden />
+        </div>
+        <div class="form-group">
+            <label asp-for="injury_description" class="control-label">Injury Description</label>
+            <input asp-for="injury_description" class="form-control" />
+            <span asp-validation-for="injury_description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="date_reported" class="control-label">Date Reported</label>
+            <input asp-for="date_reported" class="form-control" />
+            <span asp-validation-for="date_reported" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>

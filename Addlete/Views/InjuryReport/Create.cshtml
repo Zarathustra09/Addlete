@@ -1,0 +1,28 @@
+﻿@model Addlete.Models.Injury_Reports
+
+@{
+    ViewData["Title"] = "Create Injury Report";
+}
+
+<div class="card-body">
+    <form asp-action="Create">
+        <div class="form-group">
+            <label asp-for="athlete_id" class="control-label">Athlete ID</label>
+            <select asp-for="athlete_id" class="form-control" asp-items="ViewBag.Athletes">
+                <option value="">Select Athlete</option>
+            </select>
+            <span asp-validation-for="athlete_id" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="injury_description" class="control-label">Injury Description</label>
+            <input asp-for="injury_description" class="form-control" />
+            <span asp-validation-for="injury_description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="date_reported" class="control-label">Date Reported</label>
+            <input asp-for="date_reported" class="form-control" />
+            <span asp-validation-for="date_reported" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
