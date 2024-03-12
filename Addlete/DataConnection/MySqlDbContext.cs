@@ -15,6 +15,7 @@ namespace produkto.DataConnection
 
         public DbSet<Injury_Reports> Injury_Reports { get; set; } // Add DbSet for Coach mode
 
+        public DbSet<Event> Events { get; set; } // Add DbSet for Coach mode
 
         public MySqlDbContext(DbContextOptions<MySqlDbContext> options) : base(options) { }
     }
